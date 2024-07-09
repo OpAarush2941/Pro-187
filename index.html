@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8" />
+  <title>My First Web AR Scene</title>
+
+  <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+  <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.1/dist/aframe-extras.min.js"></script>
+  <script src="https://raw.githack.com/whitehatjr/ar-gesture-handler/main/index.js"></script>
+  <script src="https://unpkg.com/aframe-animation-component/dist/aframe-animation-component.min.js"></script>
+  <script src="https://unpkg.com/aframe-layout-component/dist/aframe-layout-component.min.js"></script>
+  <script src="dist/aframe-spe-particles-component.js"></script>
+  <!--script src="https://unpkg.com/aframe-spe-particles-component@^1.0.4/dist/aframe-spe-particles-component.min.js"></script-->
+</head>
+
+<body style="margin : 0px; overflow: hidden;">
+  
+  <a-scene embedded arjs="sourceType: webcam; debugUIEnabled:false; trakingMethod:best;" vr-mode-ui="emable:false">
+
+    <!--Assets Management-->
+    <a-assets>
+      <!--<a-mixin id="label" text="align: center; width: 10" position="0 -1.5 0"></a-mixin>-->
+      <a-asset-item id="castle" src="./assets/Castle/scene.gltf"></a-asset-item>
+    </a-assets>
+
+    <!--GLTF Models-->
+
+
+
+    <!-- Hiro Marker -->
+    <a-marker preset="hiro">
+      <a-entity id="castle_model" gltf-model="#castle" rotation="-90 90 -90" position="0 0 0" scale="0.3 0.3 0.3" animation-mixer>
+        <a-entity layout="type: box; columns: 6; margin: 5" position="0 2 0">
+          <a-entity spe-particles="texture: assets/blob.png; color: yellow, red, blue, pink; distribution: disc; radius: .1; randomize-position: false; particle-count: 100; velocity: 5; velocity-spread: 3; drag: 0.1; max-age: 1; active-multiplier: 1000; size: 1,1"></a-entity>
+        </a-entity>
+        <a-entity layout="type: box; columns: 6; margin: 5" position="2 0 0">
+          <a-entity spe-particles="texture: assets/blob.png; color: yellow, red, blue, pink; distribution: disc; radius: .1; randomize-position: false; particle-count: 100; velocity: 5; velocity-spread: 3; drag: 0.1; max-age: 1; active-multiplier: 1000; size: 1,1"></a-entity>
+        </a-entity>
+        <a-entity layout="type: box; columns: 6; margin: 5" position="-2 0 0">
+          <a-entity spe-particles="texture: assets/blob.png; color: yellow, red, blue, pink; distribution: disc; radius: .1; randomize-position: false; particle-count: 100; velocity: 5; velocity-spread: 3; drag: 0.1; max-age: 1; active-multiplier: 1000; size: 1,1"></a-entity>
+        </a-entity>
+      </a-entity>
+    </a-marker>
+    
+
+  </a-scene>
+</body>
+</html>
